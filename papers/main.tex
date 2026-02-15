@@ -1,0 +1,244 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs} % Added for better table formatting
+\usepackage{tabularx} % Added for tables with defined width
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+\title{Eco-Metachip Mini: A Low-Cost, Eco-Friendly Chemical Identifier Utilizing a Novel Coir-Rubber Dielectric Sensor}
+
+\author{
+\IEEEauthorblockN{1\textsuperscript{st} Aaromal A}
+\IEEEauthorblockA{\textit{School of engineering, Electronics \& communication engineering} \\
+\textit{Cochin University of Science \& Technology}\\
+Kochi, India \\
+aaromalanil\_ec24@ug.cusat.ac.in}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Abhiram B}
+\IEEEauthorblockA{\textit{School of engineering, Electronics \& communication engineering} \\
+\textit{Cochin University of Science \& Technology}\\
+Kochi, India \\
+abhiram\_ec24@ug.cusat.ac.in}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Devanarayanan C.R}
+\IEEEauthorblockA{\textit{School of engineering, Electronics \& communication engineering} \\
+\textit{Cochin University of Science \& Technology}\\
+Kochi, India \\
+devanarayanancr\_ec24@ug.cusat.ac.in}
+\and
+\IEEEauthorblockN{4\textsuperscript{th} Ivana Anto Kallookaran}
+\IEEEauthorblockA{\textit{School of engineering, Electronics \& communication engineering} \\
+\textit{Cochin University of Science \& Technology}\\
+Kochi, India \\
+ivanaanto\_ec24@ug.cusat.ac.in}
+}
+
+\maketitle
+
+\begin{abstract}
+This paper presents the \textbf{Eco-MetaChip Mini}, a novel, low-cost, and eco-friendly system for the preliminary identification of common liquids (water, ethanol, acetone, and petrol) based on changes in their relative permittivity ($\epsilon_r$). The core sensing element is a flexible, biodegradable \textbf{coir-rubber composite patch}, an innovative material developed by Prof. Dr. Anju Pradeep and her colleagues at the School of Engineering, CUSAT. This patch is integrated into a non-contact, high-frequency (approximately 100 MHz) Hartley oscillator circuit, where it acts as a coupled secondary resonator. The presence of a liquid droplet on the patch significantly alters its effective dielectric constant, causing a corresponding change in the coupled magnetic field amplitude. This amplitude fluctuation is detected by a pickup coil, rectified, filtered, and then amplified to drive a visual output system using red, green, and blue LEDs. The system successfully demonstrates clear and distinct cutoff voltage responses for liquids with significantly varying dielectric constants, establishing a fast, resource-constrained, and sustainable approach to chemical sensing.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Dielectric sensor, Hartley oscillator, Coir-rubber composite, relative permittivity sensing, Eco-friendly sensor, Chemical identification.
+\end{IEEEkeywords}
+
+\section{INTRODUCTION}
+
+The rapid and cost-effective identification of common liquids is crucial across various fields, including environmental monitoring, industrial quality control, and educational laboratories. Traditional methods often rely on spectroscopic or chromatographic techniques, which require expensive instrumentation, complex sample preparation, and specialized training. Addressing the need for simplified, sustainable, and accessible sensing solutions, this work introduces the Eco-MetaChip Mini, a low-cost dielectric-based chemical identifier.
+
+The underlying principle of this sensor is the relationship between a liquid's relative permittivity $\epsilon_r$ and its effect on a high-frequency electromagnetic field. By utilizing an oscillating circuit that is magnetically coupled to a highly sensitive dielectric substrate, changes in the $\epsilon_r$ due to liquid application can be quickly translated into a measurable electrical signal. The novelty of the Eco-MetaChip Mini lies in its integration of an \textbf{eco-friendly coir-rubber composite patch} as the foundational sensing element. This material, composed of coconut fibers and recycled rubber, offers superior flexibility, biodegradability, and has demonstrated unique frequency-selective absorption properties in the microwave regime, as detailed in Indian Patent No. 489405 \cite{Pradeep2022}.
+
+This paper is structured as follows: Section II details the design and theoretical principles of the dielectric sensing mechanism and the Hartley oscillator. Section III presents the fabrication of the coir-rubber patch and the Eco-MetaChip circuit implementation. Section IV discusses the experimental setup, results for different liquid samples, and the corresponding LED visual response. Finally, Section V concludes the work and suggests future research directions.
+
+\section{PRINCIPLES OF OPERATION}
+
+\subsection{Dielectric Sensing Mechanism via Coir-Rubber Composite}
+
+The coir-rubber patch serves as a non-contact, $\epsilon_r$-sensitive micro-strip resonator. The composite is carefully formulated with 60\% coir fiber, 30\% nitrile rubber, and 10\% carbon-black and Copper (Cu) filler, resulting in a flexible patch with dimensions of 30 mm$\times$30 mm and a thickness of 2 mm. When a liquid drop is placed on its surface, the liquid is absorbed into the pores of the coir material, effectively replacing the air in the volume. This causes a dramatic shift in the \textbf{effective relative permittivity ($\epsilon_r$)} of the coupled resonator system.
+
+The resonant frequency ($f_o$) of the system is inversely proportional to the square root of the inductance (L) and capacitance (C):
+\begin{equation}
+f_{o} \propto 1/\sqrt{L C} \label{eq:res_freq}
+\end{equation}
+Since the capacitance is largely influenced by the effective dielectric constant of the immediate environment, an increase in $\epsilon_r$ due to a high-permittivity liquid (e.g., water, $\epsilon_r \approx 80$) results in an increase in the effective capacitance and a corresponding drop in the resonant frequency.
+
+The change in the magnetic field amplitude $\Delta B_{\text{RF}}$ coupled to the pickup coil, which is positioned in a non-contact arrangement 2 mm from the patch, is therefore a direct function of the liquid's $\epsilon_r$. High-$\epsilon_r$ liquids cause a large frequency shift ($\Delta f$), leading to a larger change in the 100 MHz signal amplitude collected by the secondary coil.
+
+\begin{table}[!t]
+\centering % Keep centering for the whole table
+\caption{PREDICTED LIQUID BEHAVIOR AND RESPONSE}
+\label{tab:predict}
+% Add \usepackage{array} if not already included
+\scriptsize % Very small text
+\setlength{\tabcolsep}{2pt} % Minimal column separation
+\renewcommand{\arraystretch}{1.1} % Slightly tighter row spacing
+\begin{tabular}{|l|c|c|>{\raggedright\arraybackslash}p{1.4cm}|}
+\hline
+\textbf{Liquid} & \textbf{$\epsilon_r$} & \textbf{$\Delta f$} & \textbf{LED Response} \\
+\hline
+Water & $\approx$80 & Large & Bright Blue (High) \\
+\hline
+Ethanol & $\approx$24 & Medium & Medium Green \\
+\hline
+Acetone & $\approx$21 & Small & Dim Red (Low) \\
+\hline
+Petrol/ Hexane & $\approx$1.9 & Minimal & No LED / Dim Red \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{100 MHz Hartley Oscillator and Signal Processing}
+
+The sensing circuit uses a \textbf{Hartley oscillator} configuration (transistor Q1, 2N3904) and an LC tank formed by a 47 pF NPO ceramic capacitor (C1) and a 15-turn toroidal inductor (L1, 54nH at 100 MHz). The oscillator is biased to operate at an approximate frequency of 100 MHz.
+
+The key signal processing chain is as follows (see Fig. \ref{fig:schematic} for schematic):
+
+\begin{enumerate}
+\item \textbf{RF Pickup:} The self-sustained 100 MHz oscillating magnetic field is coupled to the coir-rubber patch. The pickup coil, magnetically coupled to the patch's near-field, captures an AC signal whose amplitude is modulated by the change in the patch's $\epsilon_{r,\text{eff}}$
+\item \textbf{Rectification and Filtering:} The captured high-frequency AC signal is converted to a corresponding DC voltage ($V_{\text{DC}}$) using a high-speed 1N4148 silicon diode bridge rectifier (D1--D4). The low junction capacitance (4 pF) and fast recovery time (4 ns) are critical for efficiently handling the RF signal. A 100 $\mu$F electrolytic capacitor filters the output, providing a clean DC voltage in the range of 0 mV to 300 mV.
+\item \textbf{Visual Output:} The DC voltage is fed to the base of a second NPN transistor (Q2, 2N3904), acting as a current amplifier and driver. Three parallel LEDs (Red, Green, Blue) are connected to the collector of Q2, each with individual current-limiting resistors (1 k$\Omega$). The difference in the forward voltage ($V_f$) of the LEDs creates a natural visual bar graph:
+\begin{itemize}
+\item \textbf{Red LED:} Lowest $V_f$, lights up first.
+\item \textbf{Green LED:} Medium $V_f$.
+\item \textbf{Blue LED:} Highest $V_f$, only lights up when the $V_{\text{DC}}$ is high.
+\end{itemize}
+\end{enumerate}
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=\columnwidth]{circuit_schematic.png}} % Placeholder for your circuit diagram
+\caption{Eco-MetaChip Mini Circuit Schematic. The core system consists of a 100 MHz Hartley oscillator (Q1), a non-contact coir-rubber patch, an RF pickup coil, a bridge rectifier stage, and a DC amplification/visual output stage (Q2).}
+\label{fig:schematic}
+\end{figure}
+
+\section{MATERIALS AND FABRICATION}
+
+\subsection{Coir-Rubber Composite Sensor Patch}
+
+The biodegradable sensor patch is fabricated from a novel composite material, leveraging the natural porosity of coconut coir fibers. The precise composition is 60\% coir fiber, 30\% nitrile rubber, and 10\% carbon-black with Copper (Cu) filler, designed to exhibit high sensitivity to liquid absorption while maintaining flexibility and mechanical integrity. The patch is cut to the physical dimensions of 30 mm$\times$30 mm with a uniform thickness of 2 mm. The porous structure allows capillary action to wick the liquid into the material matrix, ensuring a significant, quantifiable change in the effective dielectric environment of the coupled system. The material development and its frequency-selective absorption characteristics are based on established work \cite{Pradeep2022}.
+
+\subsection{Electronic Circuit Implementation}
+
+The complete Eco-MetaChip Mini circuit is powered by a 3 V CR2032 cell and is designed for low power consumption (1--2 mA). The key components and specifications are summarized in Table II.
+
+The 100 MHz Hartley oscillator (Q1, 2N3904) is built around an LC tank comprising a 47 pF NPO ceramic capacitor (C1) and the 15-turn toroidal inductor (L1). The toroidal core ferrite (High Frequency) ensures efficient magnetic field generation. The base of Q1 is biased via a 100 k$\Omega$ resistor.
+
+The RF pickup coil, consisting of two short wire turns, is positioned 2 mm above the coir-rubber patch. This non-contact arrangement ensures maximum coupling efficiency to the patch's near-field while maintaining the sanitary integrity of the circuit board.
+
+The RF signal captured by the pickup coil is immediately rectified by a 1N4148 diode bridge, chosen for its 4 ns recovery time, which is essential for RF signal conversion. The resulting DC signal is smoothed by a 100 $\mu$F electrolytic capacitor, producing the $V_{\text{DC}}$ output for the visual stage.
+
+The final stage uses Q2 (2N3904) to drive the visual output. The collector of Q2 is connected to three parallel LEDs (Red, Green, Blue) through individual 1 k$\Omega$ limiting resistors (R5, R6, R7). The amplifier configuration ensures that small changes in $V_{\text{DC}}$ (base input) translate to distinct changes in the current across the LEDs (collector load).
+
+\begin{table}[!t]
+\centering
+\caption{KEY COMPONENT SPECIFICATIONS}
+\label{tab:specs}
+\begin{tabularx}{\columnwidth}{|l|X|}
+\hline
+\textbf{Component} & \textbf{Specification} \\
+\hline
+Power Source & 3 V CR2032 cell \\
+\hline
+Sensing Element & 30 mm$\times$30 mm$\times$2 mm Coir-Rubber Patch \\
+\hline
+Oscillator Frequency ($f_o$) & $\approx$100 MHz \\
+\hline
+Toroidal Inductor (L1) & 15 Turns, 8 mm OD, 54nH \\
+\hline
+Oscillator Capacitor (C1) & 47 pF NPO Ceramic \\
+\hline
+Oscillator/Driver (Q1, Q2) & 2N3904 NPN Transistor \\
+\hline
+Rectifier Diodes (D1--D4) & 1N4148 Silicon Diodes (4 ns recovery) \\
+\hline
+Filter Capacitor & 100 $\mu$F Electrolytic \\
+\hline
+Output LED Resistors & 1 k$\Omega$ (R5, R6, R7) \\
+\hline
+\end{tabularx}
+\end{table}
+
+\section{EXPERIMENTAL RESULTS AND DISCUSSION}
+
+\subsection{Experimental Setup}
+
+The Eco-MetaChip Mini prototype was tested with 50 $\mu$L droplets of four distinct liquid samples: deionized water, absolute ethanol, acetone, and standard unleaded petrol. The $V_{\text{DC}}$ output voltage at the bridge rectifier stage was monitored using a digital multimeter, and the resulting visual LED states were recorded. The ambient temperature was maintained at 25$^{\circ}$C. The experimental setup is illustrated in Fig. \ref{fig:setup}.
+
+\begin{figure}[!t]
+\centerline{\includegraphics[width=\columnwidth]{experimental_setup.jpeg}} % Placeholder for your setup image
+\caption{Experimental Setup. The non-contact 2 mm air gap between the RF pickup coil and the Coir-Rubber Patch. The test liquid is dispensed onto the center of the patch, and the resulting $V_{\text{DC}}$ output is measured before the Q2 driver stage.}
+\label{fig:setup}
+\end{figure}
+
+\subsection{$\epsilon_r$-Dependent Output Voltage Response}
+
+The results, summarized in Table III, demonstrate a clear correlation between the liquid's relative permittivity ($\epsilon_r$) and the measured DC output voltage ($V_{\text{DC}}$).
+
+\begin{table}[!t]
+\centering
+\caption{MEASURED $V_{\text{DC}}$ AND VISUAL OUTPUT}
+\label{tab:results}
+\begin{tabularx}{\columnwidth}{|l|c|c|X|}
+\hline
+\textbf{Liquid Sample} & \textbf{Approx. $\epsilon_r$} & \textbf{Measured $V_{\text{DC}}$ (mV)} & \textbf{Observed LED State} \\
+\hline
+Air (Baseline) & 1.0 & 45 mV & None \\
+\hline
+Petrol ($\approx$ Hexane) & $\approx$1.9 & 70 mV & Very Dim Red \\
+\hline
+Acetone & $\approx$21 & 135 mV & Bright Red \\
+\hline
+Ethanol & $\approx$24 & 190 mV & Red and Green \\
+\hline
+Deionized Water & $\approx$80 & 260 mV & Red, Green, and Blue \\
+\hline
+\end{tabularx}
+\end{table}
+
+When the patch is exposed only to air, the oscillator coupling is minimal, resulting in a low baseline $V_{\text{DC}}$ of 45 mV and no illuminated LEDs. Applying petrol ($\epsilon_r \approx 1.9$) results in only a slight $V_{\text{DC}}$ increase to 70 mV, which is sufficient to weakly forward bias the Red LED.
+
+The application of acetone ($\epsilon_r \approx 21$) and ethanol ($\epsilon_r \approx 24$) causes a moderate frequency shift and a corresponding increase in $V_{\text{DC}}$ to 135 mV and 190 mV, respectively. The Red LED lights brightly for acetone, and both the Red and Green LEDs are clearly lit for ethanol. This outcome validates the system's ability to differentiate between liquids with closely grouped $\epsilon_r$ values.
+
+Finally, water, with the highest $\epsilon_r \approx 80$, induces the largest frequency perturbation, resulting in the maximum $V_{\text{DC}}$ of 260 mV. This voltage successfully triggers the Blue LED, in addition to the Red and Green, providing a clear visual confirmation of the highest permittivity liquid.
+
+\subsection{LED Cutoff Voltage Analysis}
+
+The visual output system functions as a voltage discriminator based on the cumulative forward voltage drop across the parallel LEDs and the required current to achieve visible brightness through the 1 k$\Omega$ current-limiting resistors.
+
+The relationship between the $V_{\text{DC}}$ input and the LED state provides a distinct three-level classification:
+$$
+V_{\text{DC}} \propto \Delta\epsilon_r \propto \text{Number of Illuminated LEDs}
+$$
+The results confirm the design principle: the highest $\epsilon_r$ liquid (water) generates the highest $V_{\text{DC}}$ signal, successfully clearing the cutoff for the Blue LED, while low-$\epsilon_r$ liquids (petrol, acetone) only clear the cutoff for the Red LED.
+
+\section{CONCLUSION AND FUTURE WORK}
+
+The Eco-MetaChip Mini successfully demonstrates a low-cost, eco-friendly approach to chemical identification utilizing a novel coir-rubber composite patch as a dielectric sensor. By integrating this sustainable material with a simple 100 MHz Hartley oscillator and a visually intuitive LED output, the system provides a clear, three-level classification (Red, Green, Blue) of common liquids based on their relative permittivity ($\epsilon_r$). The distinct $V_{\text{DC}}$ levels generated for water, ethanol, and acetone validate the efficacy of the magnetic-field coupling and the dielectric sensing principle. Future work will focus on integrating a digital output stage for quantitative $\epsilon_r$ measurement, developing self-calibration methods to compensate for environmental factors, and testing the system's longevity and repeatability in real-world scenarios.
+
+\section*{Acknowledgment}
+
+% Add actual acknowledgment text here, if any.
+The authors gratefully acknowledge the foundational work on the coir-rubber composite patch by Prof. Dr. Anju Pradeep and her research group at the School of Engineering, Cochin University of Science and Technology (CUSAT).
+
+\begin{thebibliography}{00}
+
+\bibitem{Pradeep2022}
+Prof. Dr. Anju Pradeep, et al., "Frequency Selective Absorber using an Innovative Arrangement of Coir and Rubber," Indian Patent No. 489405, granted 2022.
+
+\bibitem{Lide2008}
+R. D. Lide, Ed., \textit{CRC Handbook of Chemistry and Physics}, 89th ed. Boca Raton, FL: CRC Press, 2008.
+
+\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989. % Kept for template completeness if cited elsewhere.
+
+% Removed the template placeholder references b1-b6
+
+\end{thebibliography}
+
+\end{document}
