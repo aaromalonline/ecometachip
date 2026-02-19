@@ -21,3 +21,10 @@
 # --- Hardware/Project Specifics ---
 .env
 **/local_logs/
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+
+# --- Office/Temporary Lock Files ---
+.~lock.*
+*.tmp
