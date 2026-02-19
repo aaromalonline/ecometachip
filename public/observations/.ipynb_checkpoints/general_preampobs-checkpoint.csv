@@ -1,6 +1,0 @@
-# Eco-Metachip Observation Data: Pre-amplification Stage
-Sample,Dielectric Constant (?r),Meav Vdc (mV),Min Vdc (mV),Max Vdc (mV)
-Water,80,262,260,264
-Ethanol,24,184,180,188
-Coconut Oil,2.5,86,82,90
-Petrol,1.9,72,70,74
