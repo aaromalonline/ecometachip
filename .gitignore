@@ -1,0 +1,23 @@
+# --- Python / Virtual Environments ---
+# Matches any folder named venv at any level
+**/venv/
+**/.venv/
+**/__pycache__/
+*.pyc
+
+# --- LTspice Simulation Outputs ---
+# Matches these extensions in any subfolder
+**/*.raw
+**/*.op.raw
+**/*.log
+**/*.net
+
+# --- LTspice Temporary/Backup Files ---
+**/*.bak
+**/*.txt
+**/*.fft
+**/*.swp
+
+# --- Hardware/Project Specifics ---
+.env
+**/local_logs/

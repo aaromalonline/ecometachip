@@ -1,0 +1,5 @@
+Sample,Dielectric_Constant,Meav_Vdc(mV),Min_Vdc(mV),Max_Vdc(mV)
+Water,80,262,260,264
+Ethanol,24,184,180,188
+Coconut Oil,2.5,86,82,90
+Petrol,1.9,72,70,74
