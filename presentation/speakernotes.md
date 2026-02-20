@@ -40,7 +40,7 @@
     *   *Image:* Block Diagram (DC source $\rightarrow$ Hartley oscillator $\rightarrow$ coir patch $\rightarrow$ Pickup coil $\rightarrow$ precision rectifier $\rightarrow$ amplifier $\rightarrow$ LEDS).
     *   *Text:* "100 MHz Hartley Oscillator coupled with dielectric resonator."
 *   **Speaker Notes:**
-    "Here is our system architecture. A 3V DC source powers a Hartley oscillator to generate a 100 MHz RF magnetic field. The coir patch sits within this field. As the patch's permittivity changes due to the liquid, it modulates the magnetic field amplitude. A secondary pickup coil captures this non-contact signal, which is then passed through a precision rectifier and amplifier to drive an LED classification array."
+    "Here is our system architecture. A 3V DC source powers a Hartley oscillator to generate a 100 MHz RF magnetic field. The coir patch sits within this field where the non conductive space btw the coils turn to conduct the fields as the patch's permittivity changes due to the liquid, it modulates the magnetic field amplitude. A secondary pickup coil captures this non-contact signal, which is then passed through a precision rectifier and amplifier to drive an LED classification array."
     
 #### **Slide 6: The Novel Material**
 *   **Visual Content:**
