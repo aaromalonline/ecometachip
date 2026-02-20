@@ -1,0 +1,10 @@
+Component,Specification,Quantity
+Coir-Rubber substrate,30mm x 30mm (2mm thickness),1
+Copper Coils ,"Hand-wound (10u, 10u, 1m)",2
+NPN Transistor ,2N3904,2
+Schottky Diode,1N5711 ,2
+Capacitors,"100p, 10u, 100n, 1n, 100u",
+Resistors,"47k, 10k (2), 1k, 100 (5), 100k(2)  ",
+Breadboard,Standard 830-point,1
+Battery/Power Source,8V,2
+RGB LEDs w/ resistors, 1k, 3
