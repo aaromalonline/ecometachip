@@ -56,7 +56,7 @@
 *   **Speaker Notes:**
     "The physics behind this modulation relies on dielectric loading. The resonant frequency of our oscillator is inversely proportional to the square root of inductance and capacitance. When a high-permittivity liquid like water (with an $\epsilon_r$ of roughly 80) enters the patch, it significantly increases the effective capacitance of the system. This alters the resonance and modulates the amplitude of the magnetic field captured by our secondary coil."
 
-#### **Slide 8: Addressing Signal Loss**
+#### **Slide 8: Addressing Signal Loss (Coupling vs Absoroption)**
 *   **Visual Content:**
     *   *Image:* Waveguide Method Graphs showing Reflection, Transmission, and Absorption.
     *   *Text:* "Carbon content optimized for coupling, not just absorption."
