@@ -7,18 +7,6 @@
 
 ---
 
-Here is the organized markdown format for your presentation, strictly aligned with the visual slides in your `baseformat.pdf` document and the APSCON presentation rules.
-
-### 📋 APSCON 2026 Presentation Checklist
-Before diving into the slides, please ensure you meet the "Final Author Instructions":
-*   **Time:** You have exactly **12 minutes** to speak, followed by 3 minutes for Q&A.
-*   **Word Count:** Ensure any editable text on your slides is strictly **under 20 words** per visual.
-*   **Formatting:** Use at least **18pt font** (even on graph axes), bold lines for graphs, and leave space (height of a capital letter) between text lines.
-*   **Tech Check:** Save your file as a PPTX with **all fonts embedded**, bring a backup PDF version on a USB memory stick, and arrive 15 minutes early.
-
----
-
-### 🖥️ Slide-by-Slide Markdown Guide
 
 #### **Slide 1: Title Slide**
 *   **Visual Content:**
@@ -105,6 +93,9 @@ Before diving into the slides, please ensure you meet the "Final Author Instruct
     *   *Image:* Scatter Plot "Eco-Metachip Sensitivity Analysis ($V_{dc}$ vs. $\epsilon_r$)".
 *   **Speaker Notes:**
     "Plotting the pre-amplification DC voltage output against the known dielectric constants of the samples reveals a strong linear sensitivity. We achieved a sensitivity fit of 2.31 millivolts per unit of relative permittivity, with an $R^2$ score of 0.906. This level of linearity and distinct separation is exceptional for a low-cost, analog diagnostic tool."
+    (R^2 value is a mathematical score (usually around $0.99$) that shows how close your red dots are to the dashed line.This proves your sensor is Predictable. If the $R^2$ is high, it means you don't need complex AI to identify the liquid; a simple linear equation ($y = mx + c$) is enough.)
+    (The small red lines extending above and below your data points represent the Uncertainty or "noise" in your readings across different test sessions.)
+    (The dashed line shows the mathematical relationship between your input (e.g., Dielectric Constant $\epsilon_r$) and your output (Voltage $V_{dc}$). It "smooths out" the minor variations caused by noise or experimental error to show the general trend of the sensor. The linear curve fn can be used to predict permitivity change of read Vdcs in classification.)
 
 #### **Slide 14: Exp-Setup & Visual Classification**
 *   **Visual Content:**
