@@ -93,6 +93,7 @@
     *   *Image:* Scatter Plot "Eco-Metachip Sensitivity Analysis ($V_{dc}$ vs. $\epsilon_r$)".
 *   **Speaker Notes:**
     "Plotting the pre-amplification DC voltage output against the known dielectric constants of the samples reveals a strong linear sensitivity. We achieved a sensitivity fit of 2.31 millivolts per unit of relative permittivity, with an $R^2$ score of 0.906. This level of linearity and distinct separation is exceptional for a low-cost, analog diagnostic tool."
+
     (R^2 value is a mathematical score (usually around $0.99$) that shows how close your red dots are to the dashed line.This proves your sensor is Predictable. If the $R^2$ is high, it means you don't need complex AI to identify the liquid; a simple linear equation ($y = mx + c$) is enough.)
     (The small red lines extending above and below your data points represent the Uncertainty or "noise" in your readings across different test sessions.)
     (The dashed line shows the mathematical relationship between your input (e.g., Dielectric Constant $\epsilon_r$) and your output (Voltage $V_{dc}$). It "smooths out" the minor variations caused by noise or experimental error to show the general trend of the sensor. The linear curve fn can be used to predict permitivity change of read Vdcs in classification.)
