@@ -75,6 +75,15 @@
 *   **Speaker Notes:**
     "Our LTSpice simulations verified the theory. In the top plot, you can see the pre-amplification DC output from the precision rectifier. As we step the coupling coefficient to mimic liquids of increasing permittivity, the output voltage splits into distinct, measurable levels. The bottom plot shows these levels after amplification, confirming we have enough separation to drive our visual LED logic."
 
+| LTspice Line Color | $k$ Value | Physical Significance | Corresponding Sample |
+| :--- | :---: | :--- | :--- |
+| **Green** | 0.0 | No coupling (Ideal Isolation) | N/A |
+| **Blue** | 0.2 | Very Weak Link | Air / Empty Sensor |
+| **Red** | 0.4 | Standard Operating Range | **Petrol / Oils** |
+| **Cyan** | 0.6 | Strong Link | **Ethanol / Alcohols** |
+| **Magenta** | 0.8 | Very High Link | **Water** |
+| **Yellow/Grey** | 1.0 | Theoretical Perfect Coupling | Ideal Transformer |
+
 #### **Slide 11: Experimental Observations**
 *   **Visual Content:**
     *   *Image:* Table comparing Water, Ethanol, Coconut Oil, and Petrol with Mean $V_{dc}$.
