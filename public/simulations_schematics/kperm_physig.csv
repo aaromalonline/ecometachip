@@ -1,0 +1,7 @@
+Line_Color,k_Value,Relative_Permittivity_Er,Physical_Significance,Corresponding_Sample
+Green,0,0,No coupling (Ideal Isolation),N/A
+Blue,0.2,1,Very Weak Link,Air / Empty Sensor
+Red,0.4,2.1 - 3.0,Standard Operating Range,Petrol / Oils
+Cyan,0.6,24 - 25,Strong Link,Ethanol / Alcohols
+Magenta,0.8,80,Very High Link,Water
+Yellow_Grey,1,Inf,Theoretical Perfect Coupling,Ideal Transformer
