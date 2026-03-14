@@ -8,4 +8,7 @@ Authors : Aaromal A, Abhiram B, Deavanarayanan CR, Ivana Anto
 
 overleaf (view) - https://www.overleaf.com/read/nyhgtsmstkff#19fe7f  
 slides (view) - https://docs.google.com/presentation/d/1x5XXsPy9G8DDZPQAbmEi8DTTGWBkfMIbG7OKHM-1pzM/edit?usp=sharing  
+APSCON26' presentation DOI (Research Gate) - https://www.researchgate.net/publication/401928480_Certificate_for_presentation
+  
+  
 notebooklm (private) - https://notebooklm.google.com/notebook/e053b5ed-8710-4e14-8213-e6f0dfb28ae9
