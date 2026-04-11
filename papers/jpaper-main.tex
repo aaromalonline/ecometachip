@@ -143,6 +143,7 @@ RGB LEDs w/ resistors & 1 k$\Omega$ current limiting & 3 \\ \hline
     \label{fig:hardware_setup}
 \end{figure}
 
+\vspace*{6pt}
 \subsection{Circuit Implementation and LTSpice Modeling}
 Prior to physical deployment, the electronic architecture was mathematically modeled using LTspice. The Hartley oscillator utilizes a 47 pF NPO ceramic capacitor and a hand-wound 15-turn toroidal inductor ($54\text{ nH}$). 
 
@@ -173,6 +174,7 @@ The non-contact inductive link between the primary toroid and the secondary pick
 
 To extract the DC representation of the modulated RF signal, a precision bridge rectifier is required. Standard silicon diodes suffer from junction capacitance issues at 100 MHz; therefore, fast-recovery 1N5711 Schottky diodes were selected for the hardware prototype to efficiently rectify the signal before it is smoothed by a 100 $\mu$F filter capacitor.
 
+\vspace*{12pt}
 \section{Experimental Observations and Methodological Rigor}
 
 \subsection{Data Acquisition Protocol}
