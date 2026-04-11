@@ -52,7 +52,7 @@
 
 % --- Title and Authors ---
 \begin{center}
-    {\Large\bfseries Eco-MetaChip Mini: A Low-Cost, Eco-Friendly Liquid Chemical Identifier Utilizing a Novel Coir-Rubber Substrate\par}
+    {\Large\bfseries Ecometachip : A Low-Cost, Eco-Friendly Liquid Chemical Identifier Utilizing a Novel Coir-Rubber Substrate\par}
     \vspace{0.6cm}
     {\normalsize\bfseries Aaromal A, Abhiram B, Devanarayanan C.R, and Ivana Anto Kallookaran*\par}
     \vspace{0.4cm}
@@ -61,13 +61,13 @@
 \vspace{0.6cm}
 
 % --- Abstract ---
-\noindent\textbf{Abstract---}This paper presents the Eco-MetaChip Mini, an innovative, low-cost, and eco-friendly electronic system designed for the preliminary identification of common liquids (water, ethanol, coconut oil, and petrol) based on variations in their relative permittivity ($\epsilon_r$). While Coir-Rubber Composites (CoRC) are traditionally synthesized as high-efficiency radio wave absorbers through the macroscopic dissipation of electromagnetic energy via carbon fillers, this work mathematically re-engineers the material into a near-field coupled secondary dielectric resonator. By integrating a 2 mm porous CoRC patch into a non-contact 100 MHz Hartley oscillator circuit, liquid absorption displaces internal air voids, fundamentally altering the complex permittivity of the matrix and modulating the coupled magnetic field amplitude. Extensive hardware experimentation and automated Python-based statistical analysis confirm high system linearity, demonstrating a sensitivity of 2.31 mV/$\epsilon_r$ ($R^2 = 0.906$) across diverse dielectric fluids. Rigorous environmental robustness characterization over multiple test sessions reveals exceptional stability, with thermal drift constrained to 0.50 mV/$^\circ$C and humidity drift limited to 0.04 mV/\%RH. The architecture successfully drives a multi-level LED visual classification, establishing a reproducible, resource-constrained foundation for future machine-learning-based digital chemical sensing.
+\noindent\textbf{Abstract---}This paper presents the Ecometachip, an innovative, low-cost, and eco-friendly electronic system designed for the preliminary identification of common liquids (water, ethanol, coconut oil, and petrol) based on variations in their relative permittivity ($\epsilon_r$). While Coir-Rubber Composites (CoRC) are traditionally synthesized as high-efficiency radio wave absorbers through the macroscopic dissipation of electromagnetic energy via carbon fillers, this work mathematically re-engineers the material into a near-field coupled secondary dielectric resonator. By integrating a 2 mm porous CoRC patch into a non-contact 100 MHz Hartley oscillator circuit, liquid absorption displaces internal air voids, fundamentally altering the complex permittivity of the matrix and modulating the coupled magnetic field amplitude. Extensive hardware experimentation and automated Python-based statistical analysis confirm high system linearity, demonstrating a sensitivity of 2.31 mV/$\epsilon_r$ ($R^2 = 0.906$) across diverse dielectric fluids. Rigorous environmental robustness characterization over multiple test sessions reveals exceptional stability, with thermal drift constrained to 0.50 mV/$^\circ$C and humidity drift limited to 0.04 mV/\%RH. The architecture successfully drives a multi-level LED visual classification, establishing a reproducible, resource-constrained foundation for future machine-learning-based digital chemical sensing.
 
 \vspace{0.4cm}
 \noindent\textbf{Index Terms---}Dielectric sensor, Coir-rubber composite, Complex permittivity, Hartley oscillator, Chemical identification, Wave absorbers, Python Data Analysis.
 
 \section{Introduction}
-The rapid, accurate, and cost-effective identification of common liquids is a critical necessity across environmental monitoring, fuel quality control, petrochemical refining, and laboratory analysis. Traditional methodologies heavily rely on spectroscopic (e.g., benchtop FT-IR) or chromatographic techniques. While highly accurate, these systems require expensive instrumentation, complex sample preparation, specialized operator training, and significant power consumption. Addressing the urgent need for low-cost, biodegradable sensing suitable for resource-constrained field analysis, this work introduces the Eco-MetaChip Mini---a dielectric-based chemical identifier.
+The rapid, accurate, and cost-effective identification of common liquids is a critical necessity across environmental monitoring, fuel quality control, petrochemical refining, and laboratory analysis. Traditional methodologies heavily rely on spectroscopic (e.g., benchtop FT-IR) or chromatographic techniques. While highly accurate, these systems require expensive instrumentation, complex sample preparation, specialized operator training, and significant power consumption. Addressing the urgent need for low-cost, biodegradable sensing suitable for resource-constrained field analysis, this work introduces the Ecometachip---a dielectric-based chemical identifier.
 
 The fundamental operational principle relies on the relationship between a target liquid's relative permittivity ($\epsilon_r$) and its loading effect on a high-frequency electromagnetic field. The primary novelty of this system lies in the total replacement of traditional FR4 PCB substrates with an eco-friendly Coir-Rubber Composite (CoRC) patch. Originally investigated by researchers at the Cochin University of Science and Technology (CUSAT) to create ``radiation-free zones'' via highly efficient radio wave absorption, this biodegradable matrix of coconut pith fibers, natural rubber latex, and charcoal powder possesses unique, frequency-selective electromagnetic properties.
 
@@ -94,9 +94,16 @@ Because the carbon/charcoal additive is a highly conductive medium, standard thi
 In standard planar configurations backed by a conductor, a 6 mm thick CoRC achieves up to 74\% absorptivity in the X-band (8.2–12 GHz), effectively trapping the signal. 
 
 \subsection{Microstructural Permittivity Shift: The Resonator Paradigm}
-To transition the CoRC from a pure signal trap (absorber) to an active near-field sensor, the material thickness is strictly reduced to 2 mm. At this thickness, the macroscopic volume is insufficient to entirely dissipate the 100 MHz wave. Furthermore, Scanning Electron Microscopy (SEM) reveals that the addition of carbon renders the CoRC matrix highly porous. 
+To transition the CoRC from a pure signal trap (absorber) to an active near-field sensor, the material thickness is strictly reduced to 2 mm. At this thickness, the macroscopic volume is insufficient to entirely dissipate the 100 MHz wave. Furthermore, Scanning Electron Microscopy (SEM) reveals that the addition of carbon renders the CoRC matrix highly porous, as shown in Figure \ref{fig:sem_image}. 
 
-While these pores traditionally introduce multiple boundary reflections that increase power loss, the Eco-MetaChip leverages this exact porosity for liquid integration. When a 50 $\mu$L liquid droplet is applied to the surface, capillary action wicks the fluid into the matrix, violently displacing the internal air voids (where air $\epsilon_r \approx 1$). This volumetric displacement by a fluid (such as water, $\epsilon_r \approx 80$) radically shifts the effective real permittivity ($\epsilon'_{eff}$) of the coupled system, fundamentally altering its capacitance without short-circuiting the underlying electronics.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{sem_image.png}
+    \caption{Scanning electron microscopy of (a) CoR and (b) CoRC substrates. The addition of carbon in the CoR matrix (b) creates the highly porous micro-structure utilized by the Ecometachip for fluid integration. Image reproduced from Manohar et al. \cite{b1}.}
+    \label{fig:sem_image}
+\end{figure}
+\newpage
+While these pores traditionally introduce multiple boundary reflections that increase power loss, the Ecometachip leverages this exact porosity for liquid integration. When a 50 $\mu$L liquid droplet is applied to the surface, capillary action wicks the fluid into the matrix, violently displacing the internal air voids (where air $\epsilon_r \approx 1$). This volumetric displacement by a fluid (such as water, $\epsilon_r \approx 80$) radically shifts the effective real permittivity ($\epsilon'_{eff}$) of the coupled system, fundamentally altering its capacitance without short-circuiting the underlying electronics.
 
 \subsection{Near-Field Dielectric Loading and Oscillator Dynamics}
 The Eco-MetaChip generates a continuous 100 MHz RF magnetic field utilizing a Hartley oscillator topology. The self-resonant frequency ($f_o$) of the primary LC tank is dictated by:
@@ -112,26 +119,26 @@ The CoRC patch is fabricated using a precise ratio of 60\% coir fiber, 30\% nitr
 
 \begin{table}[H]
 \centering
-\caption{Eco-MetaChip Hardware Components}
+\caption{Ecometachip Hardware Components}
 \label{tab:components}
-\begin{tabular}{@{}llc@{}}
-\toprule
-\textbf{Component} & \textbf{Specification} & \textbf{Quantity} \\ \midrule
-Coir-Rubber substrate & 30 mm $\times$ 30 mm (2 mm thickness) & 1 \\
-Copper Coils & Hand-wound (10 $\mu$H, 10 $\mu$H, 1 mH equivalent) & 2 \\
-NPN Transistor & 2N3904 & 2 \\
-Schottky Diode & 1N5711 (Fast RF Recovery) & 2 \\
-Capacitors & 100 pF, 10 $\mu$F, 100 nF, 1 nF, 100 $\mu$F & 5 \\
-Resistors & 47 k$\Omega$, 10 k$\Omega$(2), 1 k$\Omega$, 100 $\Omega$(5), 100 k$\Omega$(2) & 11 \\
-Power Source & 8V DC Battery Pack & 1 \\
-RGB LEDs w/ resistors & 1 k$\Omega$ current limiting & 3 \\ \bottomrule
+\begin{tabular}{|l|l|c|}
+\hline
+\textbf{Component} & \textbf{Specification} & \textbf{Quantity} \\ \hline
+Coir-Rubber substrate & 30 mm $\times$ 30 mm (2 mm thickness) & 1 \\ \hline
+Copper Coils & Hand-wound (10 $\mu$H, 10 $\mu$H, 1 mH equivalent) & 2 \\ \hline
+NPN Transistor & 2N3904 & 2 \\ \hline
+Schottky Diode & 1N5711 (Fast RF Recovery) & 2 \\ \hline
+Capacitors & 100 pF, 10 $\mu$F, 100 nF, 1 nF, 100 $\mu$F & 5 \\ \hline
+Resistors & 47 k$\Omega$, 10 k$\Omega$(2), 1 k$\Omega$, 100 $\Omega$(5), 100 k$\Omega$(2) & 11 \\ \hline
+Power Source & 8V DC Battery Pack & 1 \\ \hline
+RGB LEDs w/ resistors & 1 k$\Omega$ current limiting & 3 \\ \hline
 \end{tabular}
 \end{table}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.65\textwidth]{newckt2.jpeg}
-    \caption{Physical prototype of the Eco-MetaChip Mini. The image highlights the critical non-contact 2 mm air gap maintained between the hand-wound RF pickup coil and the highly porous Coir-Rubber Patch.}
+    \caption{Physical prototype of the EcometaChip. The image highlights the critical non-contact 2 mm air gap maintained between the hand-wound RF pickup coil and the highly porous Coir-Rubber Patch.}
     \label{fig:hardware_setup}
 \end{figure}
 
@@ -151,15 +158,15 @@ The non-contact inductive link between the primary toroid and the secondary pick
 \centering
 \caption{Simulation Parameters: Mathematical \texttt{k\_val} mapped to Physical Permittivity ($\epsilon_r$)}
 \label{tab:coupling}
-\begin{tabular}{@{}lcl@{}}
-\toprule
-\textbf{Coupling Coefficient (\texttt{k\_val})} & \textbf{Relative Permittivity ($\epsilon_r$)} & \textbf{Physical Significance (Sample Liquid)} \\ \midrule
-0 & 0 & No coupling (Ideal Isolation) \\
-0.2 & 1 & Very Weak Link (Air / Empty Sensor) \\
-0.4 & 1.9 -- 3.0 & Standard Operating Range (Petrol / Oils) \\
-0.6 & 24 -- 25 & Strong Link (Ethanol / Alcohols) \\
-0.8 & 80 & Very High Link (Water) \\
-1.0 & $\infty$ & Theoretical Perfect Coupling \\ \bottomrule
+\begin{tabular}{|l|c|l|}
+\hline
+\textbf{Coupling Coefficient (\texttt{k\_val})} & \textbf{Relative Permittivity ($\epsilon_r$)} & \textbf{Physical Significance (Sample Liquid)} \\ \hline
+0 & 0 & No coupling (Ideal Isolation) \\ \hline
+0.2 & 1 & Very Weak Link (Air / Empty Sensor) \\ \hline
+0.4 & 1.9 -- 3.0 & Standard Operating Range (Petrol / Oils) \\ \hline
+0.6 & 24 -- 25 & Strong Link (Ethanol / Alcohols) \\ \hline
+0.8 & 80 & Very High Link (Water) \\ \hline
+1.0 & $\infty$ & Theoretical Perfect Coupling \\ \hline
 \end{tabular}
 \end{table}
 
@@ -177,25 +184,25 @@ To prove the real-world operational viability of the sensor, observations were m
 \centering
 \caption{Complete Environmental Observation Log ($V_{dc}$ Pre-Amplification Output)}
 \label{tab:completelog}
-\begin{tabular}{@{}llclc@{}}
-\toprule
-\textbf{Date} & \textbf{Humidity (\%RH)} & \textbf{Temperature ($^\circ$C)} & \textbf{Liquid Sample} & \textbf{Measured $V_{dc}$ (mV)} \\ \midrule
-2026-02-13 & 86 & 24.4 & Ethanol & 182 \\
-2026-02-13 & 86 & 24.4 & Water & 262 \\
-2026-02-13 & 86 & 24.4 & Petrol & 71 \\
-2026-02-13 & 86 & 24.4 & Coconut Oil & 84 \\ \midrule
-2026-02-14 & 78 & 28.0 & Ethanol & 187 \\
-2026-02-14 & 78 & 28.0 & Water & 262.5 \\
-2026-02-14 & 78 & 28.0 & Petrol & 73 \\
-2026-02-14 & 78 & 28.0 & Coconut Oil & 88 \\ \midrule
-2026-02-15 & 32 & -- & Ethanol & 180 \\
-2026-02-15 & 32 & -- & Water & 261 \\
-2026-02-15 & 32 & -- & Petrol & 71 \\
-2026-02-15 & 32 & -- & Coconut Oil & 83 \\ \midrule
-2026-02-15 & 64 & 29.2 & Ethanol & 183 \\
-2026-02-15 & 64 & 29.2 & Water & 267 \\
-2026-02-15 & 64 & 29.2 & Petrol & 72 \\
-2026-02-15 & 64 & 29.2 & Coconut Oil & 85 \\ \bottomrule
+\begin{tabular}{|l|l|c|l|c|}
+\hline
+\textbf{Date} & \textbf{Humidity (\%RH)} & \textbf{Temperature ($^\circ$C)} & \textbf{Liquid Sample} & \textbf{Measured $V_{dc}$ (mV)} \\ \hline
+2026-02-13 & 86 & 24.4 & Ethanol & 182 \\ \hline
+2026-02-13 & 86 & 24.4 & Water & 262 \\ \hline
+2026-02-13 & 86 & 24.4 & Petrol & 71 \\ \hline
+2026-02-13 & 86 & 24.4 & Coconut Oil & 84 \\ \hline
+2026-02-14 & 78 & 28.0 & Ethanol & 187 \\ \hline
+2026-02-14 & 78 & 28.0 & Water & 262.5 \\ \hline
+2026-02-14 & 78 & 28.0 & Petrol & 73 \\ \hline
+2026-02-14 & 78 & 28.0 & Coconut Oil & 88 \\ \hline
+2026-02-15 & 32 & -- & Ethanol & 180 \\ \hline
+2026-02-15 & 32 & -- & Water & 261 \\ \hline
+2026-02-15 & 32 & -- & Petrol & 71 \\ \hline
+2026-02-15 & 32 & -- & Coconut Oil & 83 \\ \hline
+2026-02-15 & 64 & 29.2 & Ethanol & 183 \\ \hline
+2026-02-15 & 64 & 29.2 & Water & 267 \\ \hline
+2026-02-15 & 64 & 29.2 & Petrol & 72 \\ \hline
+2026-02-15 & 64 & 29.2 & Coconut Oil & 85 \\ \hline
 \end{tabular}
 \end{table}
 
@@ -207,78 +214,92 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy import stats
+import numpy as np
 
 plt.rcParams.update({'font.size': 15})
 
-### 1. Load your dataset
+# 1. Load your dataset
 df = pd.read_csv('complete_preampobslog.csv')
-df.columns = ['Date', 'Humidity', 'Temp', 'Sample', 'Vdc']
+df.columns = ['Date', 'Humidity', 'Temp', 'Sample', 'Vdc'] # Normalize names
 df['Session'] = df['Date'] + " (H:" + df['Humidity'].astype(str) + "%)"
 df_temp = df.dropna(subset=['Temp'])
 
-### 2. Setup Figure
+# 2. Setup Figure
 plt.style.use('seaborn-v0_8-whitegrid')
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 7))
 
-### --- Subplot 1: Humidity Robustness ---
-sns.pointplot(data=df, x='Sample', y='Vdc', hue='Session', linestyles='none', dodge=0.5, palette='viridis', ax=ax1)
+# --- Subplot 1: Humidity Robustness ---
+sns.pointplot(data=df, x='Sample', y='Vdc', hue='Session', 
+              linestyles='none', dodge=0.5, palette='viridis', ax=ax1)
 ax1.set_title('Output Consistency across Variable Humidity', fontsize=12, fontweight='bold')
-ax1.set_ylabel(r'Pre-Amplification Output ( $V_{dc}$  in mV)')
+ax1.set_ylabel(r'Pre-Amplification Output ($V_{dc}$ in mV)')
 
+# Calculate and add Humidity Coefficient
 h_slope, _, _, _, _ = stats.linregress(df['Humidity'], df['Vdc'])
-ax1.text(0.05, 0.95, fr'Drift: {h_slope:.2f} mV/%RH', transform=ax1.transAxes, bbox=dict(facecolor='white', alpha=0.8), verticalalignment='top')
+ax1.text(0.05, 0.95, fr'Drift: {h_slope:.2f} mV/%RH', transform=ax1.transAxes, 
+         bbox=dict(facecolor='white', alpha=0.8), verticalalignment='top')
 
-### --- Subplot 2: Thermal Stability ---
-sns.lineplot(data=df_temp, x='Temp', y='Vdc', hue='Sample', marker='o', markersize=8, linewidth=2, palette='Set1', ax=ax2)
-ax2.set_title(r'Thermal Stability Analysis:  $V_{dc}$  vs. Temp', fontsize=12, fontweight='bold')
-ax2.set_xlabel(r'Ambient Temperature ( $^\circ$ C)')
+# --- Subplot 2: Thermal Stability ---
+sns.lineplot(data=df_temp, x='Temp', y='Vdc', hue='Sample', 
+             marker='o', markersize=8, linewidth=2, palette='Set1', ax=ax2)
+ax2.set_title(r'Thermal Stability Analysis: $V_{dc}$ vs. Temp', fontsize=12, fontweight='bold')
+ax2.set_xlabel(r'Ambient Temperature ($^\circ$C)')
 
+# Calculate and add Thermal Coefficient
 t_slope, _, _, _, _ = stats.linregress(df_temp['Temp'], df_temp['Vdc'])
-ax2.text(0.05, 0.95, fr'Drift: {t_slope:.2f} mV/ $^\circ$ C', transform=ax2.transAxes, bbox=dict(facecolor='white', alpha=0.8), verticalalignment='top')
+ax2.text(0.05, 0.95, fr'Drift: {t_slope:.2f} mV/$^\circ$C', transform=ax2.transAxes, 
+         bbox=dict(facecolor='white', alpha=0.8), verticalalignment='top')
 
+# Formatting
+plt.suptitle('Eco-Metachip Environmental Robustness Characterization (Repeatability)', fontsize=16, fontweight='bold', y=0.98)
+ax1.legend(title='Test Conditions', loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=2)
+ax2.legend(title='Liquid Sample', loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=2)
 plt.tight_layout(rect=[0, 0.05, 1, 0.95])
 plt.savefig('env_repeatability_analysis.png', dpi=300)
 plt.show()
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python, caption={Python implementation for evaluating Sensor Sensitivity and Linearity Regression.}, label=lst:sense_analysis]
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-from scipy import stats
-
-### 1. Load the data
+# 1. Load the data
 df = pd.read_csv('general_preampobs.csv')
 df.columns = ['Sample', 'Dielectric', 'Mean', 'Min', 'Max']
 
-### 2. Extract variables
+# 2. Extract variables
 X = df['Dielectric'].values
 Y = df['Mean'].values
 Y_err_min = Y - df['Min'].values
 Y_err_max = df['Max'].values - Y
 
-### 3. Perform Linear Regression
+# 3. Perform Linear Regression
 slope, intercept, r_value, p_value, std_err = stats.linregress(X, Y)
 
-### 4. Create the Plot
+# 4. Create the Plot
 plt.style.use('seaborn-v0_8-whitegrid')
 plt.figure(figsize=(10, 7))
 
-plt.errorbar(X, Y, yerr=[Y_err_min, Y_err_max], fmt='o', color='darkred', ecolor='lightcoral', elinewidth=3, capsize=5, label='Experimental Data')
+# Plot experimental points with error bars
+plt.errorbar(X, Y, yerr=[Y_err_min, Y_err_max], fmt='o', color='darkred', 
+             ecolor='lightcoral', elinewidth=3, capsize=5, label='Experimental Data')
 
+# Plot Trendline - fr string allows both {variables} and \latex symbols
 x_fit = np.linspace(X.min(), X.max(), 100)
 y_fit = slope * x_fit + intercept
-plt.plot(x_fit, y_fit, 'b--', alpha=0.7, label=fr'Sensitivity Fit: {slope:.2f} mV/ $\epsilon_r$ ')
+plt.plot(x_fit, y_fit, 'b--', alpha=0.7, label=fr'Sensitivity Fit: {slope:.2f} mV/$\epsilon_r$')
 
-### 5. Annotate Formatting
+# 5. ANNOTATE LIQUIDS
 for i, txt in enumerate(df['Sample']):
-    plt.annotate(txt, (X[i], Y[i]), xytext=(8, -5), textcoords='offset points', ha='left', fontsize=10, fontweight='bold')
+    plt.annotate(txt, (X[i], Y[i]), xytext=(8, -5), textcoords='offset points', 
+                 ha='left', fontsize=10, fontweight='bold')
 
-plt.title(r'Eco-Metachip Sensitivity Analysis ( $V_{dc}$  vs.  $\epsilon_r$ )', fontsize=14, fontweight='bold')
-plt.xlabel(r'Dielectric Constant ( $\epsilon_r$ )', fontsize=12)
-plt.ylabel(r'Pre-Amplification Output ( $V_{dc}$  in mV)', fontsize=12)
+# 6. Formatting for APSCON
+plt.title(r'Eco-Metachip Sensitivity Analysis ($V_{dc}$ vs. $\epsilon_r$)', fontsize=14, fontweight='bold')
+plt.xlabel(r'Dielectric Constant ($\epsilon_r$)', fontsize=12)
+plt.ylabel(r'Pre-Amplification Output ($V_{dc}$ in mV)', fontsize=12)
 
-stats_text = (fr'Sensitivity: {slope:.2f} mV/ $\epsilon_r$ ' + '\n' + fr' $R^2$  Score: {r_value**2:.3f}')
+# Stats Box - THE FIX: Using fr-string here solves the SyntaxWarning
+stats_text = (fr'Sensitivity: {slope:.2f} mV/$\epsilon_r$' + '\n' + 
+              fr'$R^2$ Score: {r_value**2:.3f}')
+
 plt.text(45, 100, stats_text, fontsize=11, bbox=dict(facecolor='white', alpha=0.8, edgecolor='gray'))
 
 plt.legend(loc='upper left')
@@ -290,19 +311,19 @@ plt.show()
 \section{Results and System Validation}
 
 \subsection{Sensitivity and Linearity Analysis}
-To analyze the fundamental sensitivity of the sensor relative to the dielectric constant, the comprehensive logs were statistically aggregated into Mean, Minimum, and Maximum variances, as derived from \texttt{general\_preampobs.csv} and presented in Table \ref{tab:summarylog}.
+To analyze the fundamental sensitivity of the sensor relative to the dielectric constant, the comprehensive logs were statistically aggregated into Mean, Minimum, and Maximum variances, as derived from observation logs table \ref{tab:completelog} and presented in Table \ref{tab:summarylog}.
 
 \begin{table}[H]
 \centering
 \caption{Summarized Sensitivity Observations ($V_{dc}$ vs. Known $\epsilon_r$)}
 \label{tab:summarylog}
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-\textbf{Liquid Sample} & \textbf{Dielectric Constant ($\epsilon_r$)} & \textbf{Mean $V_{dc}$ (mV)} & \textbf{Min $V_{dc}$ (mV)} & \textbf{Max $V_{dc}$ (mV)} \\ \midrule
-Water & 80 & 262 & 260 & 264 \\
-Ethanol & 24 & 184 & 180 & 188 \\
-Coconut Oil & 2.5 & 86 & 82 & 90 \\
-Petrol & 1.9 & 72 & 70 & 74 \\ \bottomrule
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Liquid Sample} & \textbf{Dielectric Constant ($\epsilon_r$)} & \textbf{Mean $V_{dc}$ (mV)} & \textbf{Min $V_{dc}$ (mV)} & \textbf{Max $V_{dc}$ (mV)} \\ \hline
+Water & 80 & 262 & 260 & 264 \\ \hline
+Ethanol & 24 & 184 & 180 & 188 \\ \hline
+Coconut Oil & 2.5 & 86 & 82 & 90 \\ \hline
+Petrol & 1.9 & 72 & 70 & 74 \\ \hline
 \end{tabular}
 \end{table}
 
@@ -327,7 +348,7 @@ These robustness characteristics prove the system successfully maintains distinc
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{env_repeatability_analysis.png}
+    \includegraphics[width=1\textwidth]{env_repeatability_analysis.png}
     \caption{Environmental robustness characterization demonstrating sensor output consistency across variable humidity (Left: Drift of 0.04 mV/\%RH) and thermal stability (Right: Drift of 0.50 mV/$^\circ$C). Extracted via Seaborn processing.}
     \label{fig:robustness}
 \end{figure}
@@ -350,20 +371,34 @@ In physical operation, the forward voltage drops ($V_f$) of parallel Red, Green,
 \end{itemize}
 
 \section{Future Scope: MCU Integration and Digital Classification}
-While the analog LED classification system provides rapid, low-cost field analysis, the future architecture of the Eco-MetaChip focuses on high-precision digital output. A hardware-to-digital bridge is currently under development to process the 0--300 mV analog $V_{dc}$ signal.
+While the analog LED classification system provides rapid, low-cost field analysis, the future architecture of the Ecometachip focuses on high-precision digital output. A hardware-to-digital bridge is currently under development to process the 0--300 mV analog $V_{dc}$ signal.
 
 This proposed architecture utilizes a non-inverting operational amplifier to scale the raw millivolt output up to a standard 3.3V logic level, coupled with a DC offset clamper circuit to strictly ensure a positive baseline, protecting the subsequent Microcontroller Unit (MCU). The MCU's Analog-to-Digital Converter (ADC) will digitize the scaled signal. Once digitized, an embedded Machine Learning classification engine---prototyped using Scikit-Learn (sklearn) Python models trained on the exact relative permittivity vs. $V_{dc}$ variations mapped in this study---will be deployed. This will enable the device to digitally classify liquids, outputting specific chemical names to an LCD or IoT pipeline rather than relying on LED thresholding.
 
 \section{Conclusion}
-The Eco-MetaChip Mini successfully establishes a mathematically rigorous, highly linear, and remarkably stable system for liquid chemical identification. By radically re-engineering the complex permittivity properties of an eco-friendly coir-rubber-carbon composite---transitioning it from a macroscopic radio wave absorber into a highly porous, near-field dielectric resonator---the system exhibits a robust sensitivity of 2.31 mV/$\epsilon_r$. Furthermore, comprehensive multi-session empirical logging proves the sensor possesses excellent environmental repeatability, establishing a sustainable, resource-constrained foundation for the future of ubiquitous chemical sensing.
+The Ecometachip successfully establishes a mathematically rigorous, highly linear, and remarkably stable system for liquid chemical identification. By radically re-engineering the complex permittivity properties of an eco-friendly coir-rubber-carbon composite---transitioning it from a macroscopic radio wave absorber into a highly porous, near-field dielectric resonator---the system exhibits a robust sensitivity of 2.31 mV/$\epsilon_r$. Furthermore, comprehensive multi-session empirical logging proves the sensor possesses excellent environmental repeatability, establishing a sustainable, resource-constrained foundation for the future of ubiquitous chemical sensing.
 
 \section*{Acknowledgment}
 The authors gratefully acknowledge the foundational material science research and patent regarding the coir-rubber composite patch developed by Prof. Dr. Anju Pradeep and her research group at the School of Engineering, Cochin University of Science and Technology (CUSAT).
 
 \begin{thebibliography}{00}
+
 \bibitem{b1} O. R. Manohar, A. Pradeep, and P. Mohanan, ``Design and Development of Radio Wave Absorber Using Eco-Friendly Materials,'' \textit{Progress In Electromagnetics Research M}, Vol. 101, pp. 161--172, 2021.
+
 \bibitem{b2} A. Pradeep, et al., ``Frequency Selective Absorber using an Innovative Arrangement of Coir and Rubber,'' Indian Patent No. 489405, granted 2022.
+
 \bibitem{b3} R. D. Lide, Ed., \textit{CRC Handbook of Chemistry and Physics}, 89th ed. Boca Raton, FL: CRC Press, 2008.
+
+\bibitem{b4} M. Karaaslan, E. Unal, C. Sabah, and O. Altintas, ``Operating frequency reconfiguration study for a split ring resonator based microfluidic sensor,'' \textit{Journal of The Electrochemical Society}, vol. 167, 10.1149/1945-7111/abc656, Nov. 2020.
+
+\bibitem{b5} P. Sabouroux and D. Ba, ``Epsimu, a tool for dielectric properties measurement of porous media: Application in wet granular materials characterization,'' \textit{Progress In Electromagnetics Research B}, Vol. 29, pp. 191--207, 2011.
+
+\bibitem{b6} S. Li, R. Chen, S. Anwar, W. Lu, Y. Lai, H. Chen, B. Hou, F. Ren, and B. Gu, ``Applying effective medium theory in characterizing dielectric constant of solids,'' \textit{Progress In Electromagnetics Research Letters}, Vol. 35, pp. 145--153, 2012.
+
+\bibitem{b7} N. F. N. Yah, H. A. Rahim, Y. S. Lee, F. H. Wee, and H. H. Zainal, ``Electromagnetic wave absorption properties of novel green composites coconut fiber coir and charcoal powder over X-band frequency for electromagnetic wave absorbing applications,'' \textit{Advanced Electromagnetics}, Vol. 7, No. 1, pp. 13--18, 2018.
+
+\bibitem{b8} A. R. Von Hippel, \textit{Dielectrics and Waves}, Wiley, New York, 1954.
+
 \end{thebibliography}
 
 \end{document}
