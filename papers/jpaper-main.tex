@@ -28,21 +28,21 @@
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 
 \lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},
+    backgroundcolor=\color{backcolour},   
     commentstyle=\color{codegreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-    basicstyle=\ttfamily\scriptsize,
-    breakatwhitespace=false,
-    breaklines=true,
-    captionpos=b,
-    keepspaces=true,
-    numbers=left,
-    numbersep=5pt,
-    showspaces=false,
+    basicstyle=\ttfamily\scriptsize, 
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
     showstringspaces=false,
-    showtabs=false,
+    showtabs=false,                  
     tabsize=2,
     mathescape=false % Bulletproofs against math-mode crashes in Python strings
 }
@@ -52,7 +52,7 @@
 
 % --- Title and Authors ---
 \begin{center}
-    {\Large\bfseries Eco-MetaChip Mini: A Mathematically Rigorous Dielectric Resonator System for Liquid Chemical Identification\par}
+    {\Large\bfseries Eco-MetaChip Mini: A Low-Cost, Eco-Friendly Liquid Chemical Identifier Utilizing a Novel Coir-Rubber Substrate\par}
     \vspace{0.6cm}
     {\normalsize\bfseries Aaromal A, Abhiram B, Devanarayanan C.R, and Ivana Anto Kallookaran*\par}
     \vspace{0.4cm}
@@ -91,10 +91,10 @@ Because the carbon/charcoal additive is a highly conductive medium, standard thi
 \begin{equation}
     A = 1 - |S_{11}|^2 - |S_{21}|^2
 \end{equation}
-In standard planar configurations backed by a conductor, a 6 mm thick CoRC achieves up to 74\% absorptivity in the X-band (8.2–12 GHz), effectively trapping the signal.
+In standard planar configurations backed by a conductor, a 6 mm thick CoRC achieves up to 74\% absorptivity in the X-band (8.2–12 GHz), effectively trapping the signal. 
 
 \subsection{Microstructural Permittivity Shift: The Resonator Paradigm}
-To transition the CoRC from a pure signal trap (absorber) to an active near-field sensor, the material thickness is strictly reduced to 2 mm. At this thickness, the macroscopic volume is insufficient to entirely dissipate the 100 MHz wave. Furthermore, Scanning Electron Microscopy (SEM) reveals that the addition of carbon renders the CoRC matrix highly porous.
+To transition the CoRC from a pure signal trap (absorber) to an active near-field sensor, the material thickness is strictly reduced to 2 mm. At this thickness, the macroscopic volume is insufficient to entirely dissipate the 100 MHz wave. Furthermore, Scanning Electron Microscopy (SEM) reveals that the addition of carbon renders the CoRC matrix highly porous. 
 
 While these pores traditionally introduce multiple boundary reflections that increase power loss, the Eco-MetaChip leverages this exact porosity for liquid integration. When a 50 $\mu$L liquid droplet is applied to the surface, capillary action wicks the fluid into the matrix, violently displacing the internal air voids (where air $\epsilon_r \approx 1$). This volumetric displacement by a fluid (such as water, $\epsilon_r \approx 80$) radically shifts the effective real permittivity ($\epsilon'_{eff}$) of the coupled system, fundamentally altering its capacitance without short-circuiting the underlying electronics.
 
@@ -136,7 +136,7 @@ RGB LEDs w/ resistors & 1 k$\Omega$ current limiting & 3 \\ \bottomrule
 \end{figure}
 
 \subsection{Circuit Implementation and LTSpice Modeling}
-Prior to physical deployment, the electronic architecture was mathematically modeled using LTspice. The Hartley oscillator utilizes a 47 pF NPO ceramic capacitor and a hand-wound 15-turn toroidal inductor ($54\text{ nH}$).
+Prior to physical deployment, the electronic architecture was mathematically modeled using LTspice. The Hartley oscillator utilizes a 47 pF NPO ceramic capacitor and a hand-wound 15-turn toroidal inductor ($54\text{ nH}$). 
 
 \begin{figure}[H]
     \centering
@@ -168,7 +168,7 @@ To extract the DC representation of the modulated RF signal, a precision bridge 
 \section{Experimental Observations and Methodological Rigor}
 
 \subsection{Data Acquisition Protocol}
-To validate the mathematical theories and simulation models, empirical data was collected. The system was powered by a steady 8V DC source. For each test, exactly 50 $\mu$L of the target liquid was deposited onto the center of the CoRC patch. Observations were recorded using a calibrated digital multimeter at the pre-amplification precision rectifier output ($V_{dc}$).
+To validate the mathematical theories and simulation models, empirical data was collected. The system was powered by a steady 8V DC source. For each test, exactly 50 $\mu$L of the target liquid was deposited onto the center of the CoRC patch. Observations were recorded using a calibrated digital multimeter at the pre-amplification precision rectifier output ($V_{dc}$). 
 
 \subsection{Comprehensive Observation Logs}
 To prove the real-world operational viability of the sensor, observations were meticulously logged across multiple days, capturing varying ambient temperatures and relative humidity (RH) percentages. Table \ref{tab:completelog} presents the complete dataset extracted directly from the \texttt{complete\_preampobslog.csv} file.
