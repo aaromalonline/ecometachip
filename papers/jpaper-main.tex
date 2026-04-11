@@ -67,43 +67,43 @@
 \noindent\textbf{Index Terms---}Dielectric sensor, Coir-rubber composite, Complex permittivity, Hartley oscillator, Chemical identification, Wave absorbers, Python Data Analysis.
 
 \section{Introduction}
-The rapid, accurate, and cost-effective identification of common liquids is a critical necessity across environmental monitoring, fuel quality control, petrochemical refining, and laboratory analysis. Traditional methodologies heavily rely on spectroscopic (e.g., benchtop FT-IR) or chromatographic techniques. While highly accurate, these systems require expensive instrumentation, complex sample preparation, specialized operator training, and significant power consumption. Addressing the urgent need for low-cost, biodegradable sensing suitable for resource-constrained field analysis, this work introduces the Ecometachip---a dielectric-based chemical identifier.
+The rapid, accurate, and cost-effective identification of common liquids is a critical necessity across environmental monitoring, fuel quality control, petrochemical refining, and laboratory analysis. Traditional methodologies heavily rely on spectroscopic (e.g., benchtop FT-IR) or chromatographic techniques. While highly accurate, these systems require expensive instrumentation, complex sample preparation, specialized operator training, and significant power consumption. Addressing the urgent need for low-cost, biodegradable sensing suitable for resource-constrained field analysis, this work introduces the Eco-MetaChip Mini---a dielectric-based chemical identifier \cite{b4}.
 
-The fundamental operational principle relies on the relationship between a target liquid's relative permittivity ($\epsilon_r$) and its loading effect on a high-frequency electromagnetic field. The primary novelty of this system lies in the total replacement of traditional FR4 PCB substrates with an eco-friendly Coir-Rubber Composite (CoRC) patch. Originally investigated by researchers at the Cochin University of Science and Technology (CUSAT) to create ``radiation-free zones'' via highly efficient radio wave absorption, this biodegradable matrix of coconut pith fibers, natural rubber latex, and charcoal powder possesses unique, frequency-selective electromagnetic properties.
+The fundamental operational principle relies on the relationship between a target liquid's relative permittivity ($\epsilon_r$) and its loading effect on a high-frequency electromagnetic field. The primary novelty of this system lies in the total replacement of traditional FR4 PCB substrates with an eco-friendly Coir-Rubber Composite (CoRC) patch. Originally investigated by researchers at the Cochin University of Science and Technology (CUSAT) to create ``radiation-free zones'' via highly efficient radio wave absorption, this biodegradable matrix of coconut pith fibers, natural rubber latex, and charcoal powder \cite{b7} possesses unique, frequency-selective electromagnetic properties \cite{b1, b2}.
 
 This paper bridges a critical gap between microwave absorption theory and near-field dielectric sensing. It provides a comprehensive, mathematically rigorous methodology that transitions the CoRC from a macroscopic wave absorber to a microstructural dielectric resonator. The study is validated through LTspice circuit simulations, detailed hardware implementations, comprehensive empirical observation logs, and automated Python-driven data analysis to mathematically prove sensor linearity, reproducibility, and environmental repeatability.
 
 \section{Theoretical Framework and Mathematical Modeling}
 
 \subsection{Macroscopic Electromagnetic Interaction in CoRC}
-The sensing substrate is derived from an agricultural by-product composite consisting of coconut pith powder, natural rubber latex, and charcoal powder (carbon). In macroscopic electromagnetic theory, the interaction of a radio wave with any given medium depends on its complex permittivity ($\epsilon^*$) and complex permeability ($\mu^*$). Because agricultural by-products and carbon fillers lack significant metallic composition, their magnetic properties are negligible ($\mu_r \approx 1$), and the material behaves purely as a complex dielectric:
+The sensing substrate is derived from an agricultural by-product composite consisting of coconut pith powder, natural rubber latex, and charcoal powder (carbon) \cite{b7}. In macroscopic electromagnetic theory, the interaction of a radio wave with any given medium depends on its complex permittivity ($\epsilon^*$) and complex permeability ($\mu^*$) \cite{b8}. Because agricultural by-products and carbon fillers lack significant metallic composition, their magnetic properties are negligible ($\mu_r \approx 1$), and the material behaves purely as a complex dielectric \cite{b8}:
 \begin{equation}
     \epsilon^* = \epsilon' - j\epsilon''
 \end{equation}
-The real part ($\epsilon'$) represents electric energy storage capacity, whereas the imaginary part ($\epsilon''$) is associated with dielectric loss---the energy dissipated as heat within the material. The effectiveness of the material in interacting with and attenuating electromagnetic waves is governed by its loss tangent ($\tan \delta_\epsilon$) and its attenuation coefficient ($\alpha$):
+The real part ($\epsilon'$) represents electric energy storage capacity, whereas the imaginary part ($\epsilon''$) is associated with dielectric loss---the energy dissipated as heat within the material \cite{b8}. The effectiveness of the material in interacting with and attenuating electromagnetic waves is governed by its loss tangent ($\tan \delta_\epsilon$) and its attenuation coefficient ($\alpha$) \cite{b8}:
 \begin{equation}
     \tan \delta_\epsilon = \frac{\epsilon''}{\epsilon'}
 \end{equation}
 \begin{equation}
     \alpha = \frac{\sqrt{2}\pi f}{v} \sqrt{\sqrt{({\mu'}^2{\epsilon'}^2 + {\mu'}^2{\epsilon''}^2)} - \mu'\epsilon'}
 \end{equation}
-Because the carbon/charcoal additive is a highly conductive medium, standard thick formulations of CoRC act as exceptional microwave absorbents. As high-frequency waves propagate through the material, surface currents generate heat, dissipating the electromagnetic energy. The total absorptivity ($A$) is verified via the linear power conservation equation utilizing transmission ($S_{21}$) and reflection ($S_{11}$) coefficients:
+Because the carbon/charcoal additive is a highly conductive medium, standard thick formulations of CoRC act as exceptional microwave absorbents \cite{b1}. As high-frequency waves propagate through the material, surface currents generate heat, dissipating the electromagnetic energy \cite{b1}. The total absorptivity ($A$) is verified via the linear power conservation equation utilizing transmission ($S_{21}$) and reflection ($S_{11}$) coefficients \cite{b1}:
 \begin{equation}
     A = 1 - |S_{11}|^2 - |S_{21}|^2
 \end{equation}
-In standard planar configurations backed by a conductor, a 6 mm thick CoRC achieves up to 74\% absorptivity in the X-band (8.2–12 GHz), effectively trapping the signal. 
+In standard planar configurations backed by a conductor, a 6 mm thick CoRC achieves up to 74\% absorptivity in the X-band (8.2–12 GHz), effectively trapping the signal \cite{b1}. 
 
 \subsection{Microstructural Permittivity Shift: The Resonator Paradigm}
-To transition the CoRC from a pure signal trap (absorber) to an active near-field sensor, the material thickness is strictly reduced to 2 mm. At this thickness, the macroscopic volume is insufficient to entirely dissipate the 100 MHz wave. Furthermore, Scanning Electron Microscopy (SEM) reveals that the addition of carbon renders the CoRC matrix highly porous, as shown in Figure \ref{fig:sem_image}. 
+To transition the CoRC from a pure signal trap (absorber) to an active near-field sensor, the material thickness is strictly reduced to 2 mm. At this thickness, the macroscopic volume is insufficient to entirely dissipate the 100 MHz wave. Furthermore, Scanning Electron Microscopy (SEM) reveals that the addition of carbon renders the CoRC matrix highly porous, as shown in Figure \ref{fig:sem_image} \cite{b1}. 
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{sem_image.png}
-    \caption{Scanning electron microscopy of (a) CoR and (b) CoRC substrates. The addition of carbon in the CoR matrix (b) creates the highly porous micro-structure utilized by the Ecometachip for fluid integration. Image reproduced from Manohar et al. \cite{b1}.}
+    \caption{Scanning electron microscopy of (a) CoR and (b) CoRC substrates. The addition of carbon to the base CoR matrix creates the highly porous CoRC micro-structure utilized by the Eco-MetaChip for fluid integration. Image reproduced from Manohar et al. \cite{b1}.}
     \label{fig:sem_image}
 \end{figure}
-\newpage
-While these pores traditionally introduce multiple boundary reflections that increase power loss, the Ecometachip leverages this exact porosity for liquid integration. When a 50 $\mu$L liquid droplet is applied to the surface, capillary action wicks the fluid into the matrix, violently displacing the internal air voids (where air $\epsilon_r \approx 1$). This volumetric displacement by a fluid (such as water, $\epsilon_r \approx 80$) radically shifts the effective real permittivity ($\epsilon'_{eff}$) of the coupled system, fundamentally altering its capacitance without short-circuiting the underlying electronics.
+
+While these pores traditionally introduce multiple boundary reflections that increase power loss \cite{b1}, the Eco-MetaChip leverages this exact porosity for liquid integration. When a 50 $\mu$L liquid droplet is applied to the surface, capillary action wicks the fluid into the matrix, violently displacing the internal air voids (where air $\epsilon_r \approx 1$). This volumetric displacement by a fluid (such as water, $\epsilon_r \approx 80$ \cite{b3}) radically shifts the effective real permittivity ($\epsilon'_{eff}$) of the coupled system \cite{b5, b6}, fundamentally altering its capacitance without short-circuiting the underlying electronics.
 
 \subsection{Near-Field Dielectric Loading and Oscillator Dynamics}
 The Eco-MetaChip generates a continuous 100 MHz RF magnetic field utilizing a Hartley oscillator topology. The self-resonant frequency ($f_o$) of the primary LC tank is dictated by:
@@ -112,6 +112,7 @@ The Eco-MetaChip generates a continuous 100 MHz RF magnetic field utilizing a Ha
 \end{equation}
 The CoRC patch functions as a dielectrically loaded secondary resonator. An increase in the substrate's $\epsilon_r$ directly increases the effective mutual capacitance ($C_{eff}$) of the near-field environment. According to Equation 5, this forces a downward shift in the resonant frequency, which subsequently modulates the amplitude of the resultant fluctuating magnetic field ($B_{RF}$). This amplitude-modulated field is captured non-contactively by a secondary pickup coil located precisely 2 mm away.
 
+\vspace*{30pt}
 \section{System Design and Hardware Architecture}
 
 \subsection{Sensor Fabrication and Component Specifications}
@@ -137,7 +138,7 @@ RGB LEDs w/ resistors & 1 k$\Omega$ current limiting & 3 \\ \hline
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.65\textwidth]{newckt2.jpeg}
+    \includegraphics[width=0.7\textwidth]{newckt2.jpeg}
     \caption{Physical prototype of the EcometaChip. The image highlights the critical non-contact 2 mm air gap maintained between the hand-wound RF pickup coil and the highly porous Coir-Rubber Patch.}
     \label{fig:hardware_setup}
 \end{figure}
@@ -147,7 +148,7 @@ Prior to physical deployment, the electronic architecture was mathematically mod
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{ampcircuit.png}
+    \includegraphics[width=0.95\textwidth]{ampcircuit.png}
     \caption{LTspice schematic detailing the Hartley oscillator (left), the modeled inductive coupling gap (\texttt{k\_val}), and the LT1078 precision rectifier bridge utilized to extract the DC envelope.}
     \label{fig:ltspice_circuit}
 \end{figure}
@@ -308,6 +309,7 @@ plt.savefig('sensitivity_analysis.png', dpi=300)
 plt.show()
 \end{lstlisting}
 
+\vspace*{14pt}
 \section{Results and System Validation}
 
 \subsection{Sensitivity and Linearity Analysis}
@@ -327,6 +329,7 @@ Petrol & 1.9 & 72 & 70 & 74 \\ \hline
 \end{tabular}
 \end{table}
 
+\newpage
 As algorithmically executed and visually rendered by the Python analysis pipeline (Figure \ref{fig:sensitivity}), the system demonstrated a highly linear response. The calculated Sensitivity Fit was \textbf{2.31 mV/$\epsilon_r$} with an exceptional Coefficient of Determination (\textbf{$R^2$ Score}) of \textbf{0.906}. This provides definitive mathematical evidence that optimizing the CoRC carbon content successfully transitioned the material into a highly predictable, quantitative dielectric resonator.
 
 \begin{figure}[H]
@@ -336,6 +339,7 @@ As algorithmically executed and visually rendered by the Python analysis pipelin
     \label{fig:sensitivity}
 \end{figure}
 
+\vspace*{6pt}
 \subsection{Environmental Robustness and Repeatability}
 For any field-deployable analytical instrument, immunity to environmental fluctuations is paramount. Utilizing the extensive dataset provided in Table \ref{tab:completelog}, the Python pipeline computed the baseline output drift across massive environmental swings.
 
@@ -353,16 +357,18 @@ These robustness characteristics prove the system successfully maintains distinc
     \label{fig:robustness}
 \end{figure}
 
+\vspace*{6pt}
 \subsection{Waveform Output and Hardware Visual Classification}
 The current hardware prototype processes the pre-amplification DC output through a 2N3904 transistor to drive a simple multi-level LED interface. The distinct voltage separations achieved at the precision rectifier---and their respective trigger points for the final amplifier---were successfully simulated in LTspice (Figure \ref{fig:waveforms}) and perfectly align with the hardware behavior.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{output_stages(thick).png}
+    \includegraphics[width=0.9\textwidth]{output_stages(thick)-axeslabeled.png}
     \caption{LTSpice Simulation waveforms demonstrating the 100 MHz Hartley Oscillator carrier wave, the amplitude-modulated Pickup Coil AC signal, and the distinctly separated DC output levels at the precision rectifier stage mapping to the \texttt{k\_val} parameters.}
     \label{fig:waveforms}
 \end{figure}
 
+\newpage
 In physical operation, the forward voltage drops ($V_f$) of parallel Red, Green, and Blue LEDs serve as an analog voltage discriminator:
 \begin{itemize}
     \item A low-$\epsilon_r$ liquid like Petrol (yielding a mean of 72 mV) only weakly biases the base of the driver, dimly illuminating the \textbf{Red LED}.
@@ -370,6 +376,7 @@ In physical operation, the forward voltage drops ($V_f$) of parallel Red, Green,
     \item Water, generating the maximum 262 mV baseline due to its massive $\epsilon_r \approx 80$, successfully triggers the highest-threshold \textbf{Blue LED} alongside Red and Green.
 \end{itemize}
 
+\vspace*{20pt}
 \section{Future Scope: MCU Integration and Digital Classification}
 While the analog LED classification system provides rapid, low-cost field analysis, the future architecture of the Ecometachip focuses on high-precision digital output. A hardware-to-digital bridge is currently under development to process the 0--300 mV analog $V_{dc}$ signal.
 
@@ -378,9 +385,11 @@ This proposed architecture utilizes a non-inverting operational amplifier to sca
 \section{Conclusion}
 The Ecometachip successfully establishes a mathematically rigorous, highly linear, and remarkably stable system for liquid chemical identification. By radically re-engineering the complex permittivity properties of an eco-friendly coir-rubber-carbon composite---transitioning it from a macroscopic radio wave absorber into a highly porous, near-field dielectric resonator---the system exhibits a robust sensitivity of 2.31 mV/$\epsilon_r$. Furthermore, comprehensive multi-session empirical logging proves the sensor possesses excellent environmental repeatability, establishing a sustainable, resource-constrained foundation for the future of ubiquitous chemical sensing.
 
+\vspace*{10pt}
 \section*{Acknowledgment}
 The authors gratefully acknowledge the foundational material science research and patent regarding the coir-rubber composite patch developed by Prof. Dr. Anju Pradeep and her research group at the School of Engineering, Cochin University of Science and Technology (CUSAT).
 
+\newpage
 \begin{thebibliography}{00}
 
 \bibitem{b1} O. R. Manohar, A. Pradeep, and P. Mohanan, ``Design and Development of Radio Wave Absorber Using Eco-Friendly Materials,'' \textit{Progress In Electromagnetics Research M}, Vol. 101, pp. 161--172, 2021.
