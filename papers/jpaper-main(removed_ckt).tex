@@ -115,7 +115,7 @@ The Eco-MetaChip generates a continuous 100 MHz RF magnetic field utilizing a Ha
 \end{equation}
 The CoRC patch functions as a dielectrically loaded secondary resonator. An increase in the substrate's $\epsilon_r$ directly increases the effective mutual capacitance ($C_{eff}$) of the near-field environment. According to Equation 5, this forces a downward shift in the resonant frequency, which subsequently modulates the amplitude of the resultant fluctuating magnetic field ($B_{RF}$). This amplitude-modulated field is captured non-contactively by a secondary pickup coil located precisely 2 mm away.
 
-\vspace*{30pt}
+\vspace*{13pt}
 \section{System Design and Hardware Architecture}
 \subsection{Sensor Fabrication and Component Specifications}
 The CoRC patch is fabricated using a precise ratio of 60\% coir fiber, 30\% nitrile rubber, and 10\% carbon-black with Copper (Cu) filler. The composite is hydraulically pressed into a 30 mm $\times$ 30 mm patch with a uniform thickness of 2 mm. The complete hardware prototype was assembled on a standard 830-point breadboard. Table \ref{tab:components} details the precise bill of materials utilized for the physical realization of the sensor.
@@ -138,14 +138,6 @@ RGB LEDs w/ resistors & 1 k$\Omega$ current limiting & 3 \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{newckt2.jpeg}
-    \caption{Physical prototype of the EcometaChip. The image highlights the critical non-contact 2 mm air gap maintained between the hand-wound RF pickup coil and the highly porous Coir-Rubber Patch.}
-    \label{fig:hardware_setup}
-\end{figure}
-
-\vspace*{6pt}
 \subsection{Circuit Implementation and LTSpice Modeling}
 Prior to physical deployment, the electronic architecture was mathematically modeled using LTspice. The Hartley oscillator utilizes a 47 pF NPO ceramic capacitor and a hand-wound 15-turn toroidal inductor ($54\text{ nH}$). 
 
@@ -313,7 +305,6 @@ plt.savefig('sensitivity_analysis.png', dpi=300)
 plt.show()
 \end{lstlisting}
 
-\vspace*{14pt}
 \section{Results and System Validation}
 
 \subsection{Sensitivity and Linearity Analysis}
@@ -333,7 +324,6 @@ Petrol & 1.9 & 72 & 70 & 74 \\ \hline
 \end{tabular}
 \end{table}
 
-\newpage
 As algorithmically executed and visually rendered by the Python analysis pipeline (Figure \ref{fig:sensitivity}), the system demonstrated a highly linear response. The calculated Sensitivity Fit was \textbf{2.31 mV/$\epsilon_r$} with an exceptional Coefficient of Determination (\textbf{$R^2$ Score}) of \textbf{0.906}. This provides definitive mathematical evidence that optimizing the CoRC carbon content successfully transitioned the material into a highly predictable, quantitative dielectric resonator.
 
 \begin{figure}[H]
@@ -343,7 +333,6 @@ As algorithmically executed and visually rendered by the Python analysis pipelin
     \label{fig:sensitivity}
 \end{figure}
 
-\vspace*{6pt}
 \subsection{Environmental Robustness and Repeatability}
 For any field-deployable analytical instrument, immunity to environmental fluctuations is paramount. Utilizing the extensive dataset provided in Table \ref{tab:completelog}, the Python pipeline computed the baseline output drift across massive environmental swings.
 
@@ -361,7 +350,6 @@ These robustness characteristics prove the system successfully maintains distinc
     \label{fig:robustness}
 \end{figure}
 
-\vspace*{6pt}
 \subsection{Waveform Output and Hardware Visual Classification}
 The current hardware prototype processes the pre-amplification DC output through a 2N3904 transistor to drive a simple multi-level LED interface. The distinct voltage separations achieved at the precision rectifier---and their respective trigger points for the final amplifier---were successfully simulated in LTspice (Figure \ref{fig:waveforms}) and perfectly align with the hardware behavior.
 
@@ -372,7 +360,6 @@ The current hardware prototype processes the pre-amplification DC output through
     \label{fig:waveforms}
 \end{figure}
 
-\newpage
 In physical operation, the forward voltage drops ($V_f$) of parallel Red, Green, and Blue LEDs serve as an analog voltage discriminator:
 \begin{itemize}
     \item A low-$\epsilon_r$ liquid like Petrol (yielding a mean of 72 mV) only weakly biases the base of the driver, dimly illuminating the \textbf{Red LED}.
